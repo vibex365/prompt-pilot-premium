@@ -1,4 +1,4 @@
-const correctLicense = "X9QY8W3Z1K"; // Example license key
+const correctLicense = "X9QY8W3Z1K"; // Your working license key
 
 document.addEventListener("DOMContentLoaded", function() {
   const unlockButton = document.getElementById('unlockButton');
@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function checkKey() {
   const input = document.getElementById('licenseInput').value.trim().toUpperCase();
+  console.log("User entered license:", input); // ✅ Debug: See exactly what was typed
+
   if (input === correctLicense) {
     localStorage.setItem('prompt_pilot_unlocked', 'true');
     showDashboard();
