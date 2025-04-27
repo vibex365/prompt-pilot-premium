@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const correctLicense = "X9QY8W3Z1K"; // Working License
+  const correctLicense = "X9QY8W3Z1K";
 
   const unlockButton = document.getElementById('unlockButton');
   const unlockScreen = document.getElementById('unlockScreen');
@@ -18,8 +18,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if (input === correctLicense) {
         localStorage.setItem('prompt_pilot_unlocked', 'true');
-        unlockScreen.style.display = "none";
-        dashboard.style.display = "block";
+        
+        // ✅ IMMEDIATELY refresh the page to trigger full unlock
+        setTimeout(function() {
+          location.reload();
+        }, 300); // Reload after 0.3 seconds
+
       } else {
         if (errorMessage) {
           errorMessage.innerText = "❌ Invalid License Key.";
