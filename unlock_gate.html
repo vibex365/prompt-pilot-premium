@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prompt Pilot Premium - Unlock</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00c853">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Prompt Pilot">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="unlockScreen" class="unlock-container">
+  <h2>Unlock Prompt Pilot Premium</h2>
+  <input type="text" id="licenseInput" placeholder="Enter 10-Character License Key">
+  <br>
+  <button onclick="checkKey()">Unlock</button>
+  <div id="errorMessage" class="error"></div>
+</div>
+
+<div id="dashboard" class="hidden">
+  <div class="sidebar">
+    <button onclick="showSection('home')">🏠</button>
+    <button onclick="showSection('caption')">✍️</button>
+    <button onclick="showSection('prompt')">⚡</button>
+    <button onclick="showSection('idea')">💡</button>
+    <button onclick="showSection('hashtag')">#️⃣</button>
+    <button onclick="toggleTheme()">🎨</button>
+  </div>
+  <div class="main-content">
+    <div id="home" class="section active">Welcome Home!</div>
+    <div id="caption" class="section">Caption Composer</div>
+    <div id="prompt" class="section">Prompt Organizer</div>
+    <div id="idea" class="section">Idea Inbox</div>
+    <div id="hashtag" class="section">Hashtag Mixer</div>
+  </div>
+</div>
+
+<script src="js/unlock.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/theme.js"></script>
+
+</body>
+</html>
