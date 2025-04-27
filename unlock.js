@@ -1,36 +1,30 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const correctLicense = "X9QY8W3Z1K"; // Your working license key
+  const correctLicense = "X9QY8W3Z1K"; // Working License
 
   const unlockButton = document.getElementById('unlockButton');
-  if (unlockButton) {
-    unlockButton.addEventListener('click', checkKey);
-  }
+  const unlockScreen = document.getElementById('unlockScreen');
+  const dashboard = document.getElementById('dashboard');
+  const errorMessage = document.getElementById('errorMessage');
 
   if (localStorage.getItem('prompt_pilot_unlocked') === 'true') {
-    showDashboard();
+    unlockScreen.style.display = "none"; 
+    dashboard.style.display = "block";    
   }
 
-  function checkKey() {
-    const input = document.getElementById('licenseInput').value.trim().toUpperCase();
-    console.log("User entered license:", input);
+  if (unlockButton) {
+    unlockButton.addEventListener('click', function() {
+      const input = document.getElementById('licenseInput').value.trim().toUpperCase();
+      console.log("Entered license:", input);
 
-    if (input === correctLicense) {
-      localStorage.setItem('prompt_pilot_unlocked', 'true');
-      showDashboard();
-    } else {
-      const errorMessage = document.getElementById('errorMessage');
-      if (errorMessage) {
-        errorMessage.innerText = "❌ Invalid License Key.";
+      if (input === correctLicense) {
+        localStorage.setItem('prompt_pilot_unlocked', 'true');
+        unlockScreen.style.display = "none";
+        dashboard.style.display = "block";
+      } else {
+        if (errorMessage) {
+          errorMessage.innerText = "❌ Invalid License Key.";
+        }
       }
-    }
-  }
-
-  function showDashboard() {
-    const unlockScreen = document.getElementById('unlockScreen');
-    const dashboard = document.getElementById('dashboard');
-    if (unlockScreen && dashboard) {
-      unlockScreen.classList.add('hidden');
-      dashboard.classList.remove('hidden');
-    }
+    });
   }
 });
